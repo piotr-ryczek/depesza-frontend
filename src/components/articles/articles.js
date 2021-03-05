@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import MaterialTable from '@material-table/core';
 
-import { useSecurity } from 'lib/hooks';
 import basicReducer from 'lib/basic-reducer';
 import { Loader } from 'common/loader';
 import { Pagination } from 'common/pagination';
@@ -19,7 +18,6 @@ import columns from './table/columns';
 import getActions from './table/get-actions';
 
 export const Articles = () => {
-  useSecurity(true);
   const history = useHistory();
   const dispatch = useDispatch();
 

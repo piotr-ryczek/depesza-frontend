@@ -9,9 +9,10 @@ const translations = {
   FILE_UPLOAD_ERROR: 'Błąd przy uploadzie pliku',
   FILE_RESIZE_ERROR: 'Błąd przy przekształcaniu obrazka',
   PUBLISHER_HAS_NOT_BEEN_UPDATED: 'Wydawca nie został zaktualizowany',
+  INITIAL_CODE_INCORRECT: 'Inicjujący kod jest niepoprawny',
 };
 
-export const translateCode = (code, message?) => {
+export const translateCode = (code, message) => {
   if (!code) return message;
 
   if (translations[code]) {

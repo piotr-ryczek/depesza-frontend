@@ -11,14 +11,22 @@ export const useSecurity = (isSecured = true, neededPasswordToBeSettedUp = true)
   if (isSecured && !token) {
     // Route Secured and lack of token => Login
     history.push(routes.login);
+
+    return false;
   } else if (isSecured && token && !hasPassword && neededPasswordToBeSettedUp) {
     // Route secure, there is token, but user hasn't setted up password and route needs it => Set Password
     history.push(routes.setPassword);
+
+    return false;
   } else if (isSecured && token && hasPassword && !neededPasswordToBeSettedUp) {
-    history.push(routes.main);
+    history.push(routes.articles.index);
+
+    return false;
   } else if (!isSecured && token) {
     // Route isn't secured and user has token => Dashboard
-    history.push(routes.main);
+    history.push(routes.articles.index);
+
+    return false;
   }
 
   return {

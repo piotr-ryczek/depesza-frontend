@@ -28,7 +28,7 @@ export const Navigation = () => {
     <AppBar position="static">
       <Toolbar className={classes.menuWrapper}>
         <div className={classes.onLeft}>
-          <Button color="inherit" component={Link} to={routes.account} disabled>
+          <Button color="inherit" component={Link} to={routes.account}>
             Twoje konto
           </Button>
           <Button color="inherit" component={Link} to={routes.articles.index}>

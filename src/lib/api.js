@@ -124,6 +124,25 @@ class Api {
       headers,
     });
   };
+
+  getOwnPublisher = async () => {
+    return this.get('/publishers/own');
+  };
+
+  updateOwnPublisher = async formDataValues => {
+    const { headers } = this.getConfig();
+
+    Object.assign(headers, {
+      'Content-Type': 'multipart/form-data',
+    });
+
+    return axios({
+      method: 'put',
+      url: `${this.apiUrl}/publishers/own`,
+      data: formDataValues,
+      headers,
+    });
+  };
 }
 
 export default new Api();

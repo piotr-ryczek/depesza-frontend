@@ -74,10 +74,12 @@ export const Article = props => {
         isLoading: true,
       });
 
-      const { title, excerpt, content, newPhoto, regionId } = values;
+      const { title, author, excerpt, content, newPhoto, regionId, isPublished } = values;
 
       const formData = new FormData();
+      formData.append('isPublished', isPublished);
       formData.append('title', title);
+      formData.append('author', author);
       formData.append('excerpt', excerpt);
       formData.append('content', content);
       formData.append('regionId', regionId);

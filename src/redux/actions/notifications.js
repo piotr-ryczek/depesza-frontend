@@ -47,6 +47,13 @@ export const handleApiError = error => dispatch => {
     return;
   }
 
+  if (status === 403 && errorCode === 'PUBLISHER_ALREADY_HAS_PASSWORD') {
+    dispatch(logout());
+    dispatch(addError({ message: 'Zostałeś wylogowany.' }));
+
+    return;
+  }
+
   dispatch(addError({ code: errorCode }));
 };
 

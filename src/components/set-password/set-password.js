@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
-import { useSecurity } from 'lib/hooks';
 import { AuthFormWrapper } from 'common/auth-form-wrapper';
 import { logout, handleApiError } from 'redux/actions';
 import { Loader } from 'common/loader';
@@ -17,7 +16,6 @@ import { SetPasswordForm } from './form';
 import { useStyles } from './styles';
 
 export const SetPassword = () => {
-  useSecurity(true, false);
   const dispatch = useDispatch();
   const [{ isLoading, isAfterProcess, secret2FA, email }, setState] = useReducer(basicReducer, {
     isLoading: false,

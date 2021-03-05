@@ -9,6 +9,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 import { RichEditor } from 'common/rich-editor';
 import { getImageUrl } from 'lib/helpers';
@@ -44,17 +46,34 @@ export const ArticleForm = props => {
     setFieldValue('newPhoto', event.target.files[0]);
   };
 
-  const { title, excerpt, content, currentPhotoUrl, regionId } = values;
+  const { title, author, excerpt, content, currentPhotoUrl, regionId, isPublished } = values;
 
   return (
     <form onSubmit={handleSubmit} className={classes.form}>
       <Grid container spacing={5}>
+        <Grid item xs={12}>
+          <FormControlLabel
+            control={<Checkbox checked={isPublished} onChange={handleChange} name="isPublished" color="primary" />}
+            label="Opublikowany?"
+          />
+        </Grid>
         <Grid item xs={12}>
           <TextField
             label="Tytuł"
             variant="outlined"
             name="title"
             value={title}
+            fullWidth
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Autor"
+            variant="outlined"
+            name="author"
+            value={author}
             fullWidth
             onChange={handleChange}
             onBlur={handleBlur}
