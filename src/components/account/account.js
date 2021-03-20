@@ -10,7 +10,7 @@ import { Loader } from 'common/loader';
 
 import { PublisherForm } from './form';
 
-export const Account = props => {
+export const Account = () => {
   useSecurity(true);
 
   const dispatch = useDispatch();
