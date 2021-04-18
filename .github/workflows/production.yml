@@ -1,0 +1,35 @@
+name: Production
+
+on:
+  push:
+    branches: [production]
+
+jobs:
+  build_and_deploy_production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install yarn
+        run: npm i -g yarn
+      - name: install app dependencies
+        run: yarn
+        env:
+          CI: true
+      - name: Build Production
+        run: yarn build
+        env:
+          SKIP_PREFLIGHT_CHECK: true
+          REACT_APP_API_URL: ${{ secrets.PRODUCTION_REACT_APP_API_URL }}
+      - name: Deploy to Production server
+        uses: easingthemes/ssh-deploy@v2.0.7
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "build/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: "domains/${{ secrets.PRODUCTION_DOMAIN }}/public_html"
