@@ -20,7 +20,7 @@ jobs:
         env:
           CI: true
       - name: Build Production
-        run: yarn build
+        run: yarn build-cd
         env:
           SKIP_PREFLIGHT_CHECK: true
           REACT_APP_API_URL: ${{ secrets.PRODUCTION_REACT_APP_API_URL }}
