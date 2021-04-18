@@ -13,7 +13,7 @@ export const removeNotification = notificationId => ({
   payload: notificationId,
 });
 
-export const addNotification = ({ id, type, code, message }) => dispatch => {
+export const addNotification = ({ id = uuidv4(), type, code, message }) => dispatch => {
   setTimeout(() => {
     dispatch(removeNotification(id));
   }, config.notificationsTimeout);

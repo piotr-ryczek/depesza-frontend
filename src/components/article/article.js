@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { FormWrapper } from 'common/form-wrapper';
 import { useSecurity } from 'lib/hooks';
 import api from 'lib/api';
-import { handleApiError } from 'redux/actions';
+import { addNotification, handleApiError } from 'redux/actions';
 import basicReducer from 'lib/basic-reducer';
 import { Loader } from 'common/loader';
 import routes from 'lib/routes';
@@ -102,6 +102,12 @@ export const Article = props => {
       setState({
         isLoading: false,
       });
+      dispatch(
+        addNotification({
+          type: 'success',
+          message: 'Artykuł został zapisany',
+        }),
+      );
     } catch (error) {
       dispatch(handleApiError(error));
       setState({

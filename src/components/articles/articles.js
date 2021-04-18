@@ -8,7 +8,7 @@ import { Loader } from 'common/loader';
 import { Pagination } from 'common/pagination';
 import routes from 'lib/routes';
 import config from 'lib/config';
-import { handleApiError } from 'redux/actions';
+import { addNotification, handleApiError } from 'redux/actions';
 
 import api from 'lib/api';
 import icons from 'lib/tables/icons';
@@ -78,6 +78,12 @@ export const Articles = () => {
       setState({
         isLoading: false,
       });
+      dispatch(
+        addNotification({
+          type: 'success',
+          message: 'Artykuł został usunięty',
+        }),
+      );
       fetchArticles();
     }
   };

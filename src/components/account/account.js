@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { FormWrapper } from 'common/form-wrapper';
 import { useSecurity } from 'lib/hooks';
 import api from 'lib/api';
-import { handleApiError } from 'redux/actions';
+import { addNotification, handleApiError } from 'redux/actions';
 import basicReducer from 'lib/basic-reducer';
 import { Loader } from 'common/loader';
 
@@ -65,6 +65,12 @@ export const Account = () => {
       await api.updateOwnPublisher(formData);
       fetchPublisher();
 
+      dispatch(
+        addNotification({
+          type: 'success',
+          message: 'Dane wydawcy zostały zapisane',
+        }),
+      );
       setState({
         isLoading: false,
       });
