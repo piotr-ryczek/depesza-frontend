@@ -118,5 +118,3 @@ export const ArticleForm = props => {
     </form>
   );
 };
-
-// <figure><img src=\"http://mowiacwprost.pl/wp-content/uploads/2019/10/SYRIA-PULL-BACK.png\" alt=\"\" class=\"wp-image-1119\" width=\"1006\" height=\"753\"><figcaption>https://orinocotribune.com/syria-trump-gives-a-green-light-for-another-turkish-invasion</figcaption></figure>
