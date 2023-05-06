@@ -10,6 +10,7 @@ const translations = {
   FILE_RESIZE_ERROR: 'Błąd przy przekształcaniu obrazka',
   PUBLISHER_HAS_NOT_BEEN_UPDATED: 'Wydawca nie został zaktualizowany',
   INITIAL_CODE_INCORRECT: 'Inicjujący kod jest niepoprawny',
+  ARTICLE_DOES_NOT_EXIST: 'Artykuł nie istnieje',
 };
 
 export const translateCode = (code, message) => {
