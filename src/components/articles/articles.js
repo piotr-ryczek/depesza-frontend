@@ -73,18 +73,25 @@ export const Articles = () => {
         isLoading: true,
       });
 
-      await api.deleteArticle(articleId);
+      try {
+        await api.deleteArticle(articleId);
 
-      setState({
-        isLoading: false,
-      });
-      dispatch(
-        addNotification({
-          type: 'success',
-          message: 'Artykuł został usunięty',
-        }),
-      );
-      fetchArticles();
+        setState({
+          isLoading: false,
+        });
+        dispatch(
+          addNotification({
+            type: 'success',
+            message: 'Artykuł został usunięty',
+          }),
+        );
+        fetchArticles();
+      } catch (error) {
+        dispatch(handleApiError(error));
+        setState({
+          isLoading: false,
+        });
+      }
     }
   };
 

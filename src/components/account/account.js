@@ -47,13 +47,26 @@ export const Account = () => {
         isLoading: true,
       });
 
-      const { name, description, authors, patroniteUrl, facebookUrl, twitterUrl, www, newLogo } = values;
+      const {
+        name,
+        description,
+        authors,
+        patroniteUrl,
+        patreonUrl,
+        buyCoffeeToUrl,
+        facebookUrl,
+        twitterUrl,
+        www,
+        newLogo,
+      } = values;
 
       const formData = new FormData();
       formData.append('name', name);
       formData.append('description', description);
       formData.append('authors', authors);
       formData.append('patroniteUrl', patroniteUrl);
+      formData.append('patreonUrl', patreonUrl);
+      formData.append('buyCoffeeToUrl', buyCoffeeToUrl);
       formData.append('facebookUrl', facebookUrl);
       formData.append('twitterUrl', twitterUrl);
       formData.append('www', www);
