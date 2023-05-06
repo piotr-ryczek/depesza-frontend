@@ -27,7 +27,18 @@ export const PublisherForm = props => {
     setFieldValue('newLogo', event.target.files[0]);
   };
 
-  const { name, description, authors, patroniteUrl, facebookUrl, twitterUrl, www, currentLogoUrl } = values;
+  const {
+    name,
+    description,
+    authors,
+    patroniteUrl,
+    patreonUrl,
+    buyCoffeeToUrl,
+    facebookUrl,
+    twitterUrl,
+    www,
+    currentLogoUrl,
+  } = values;
 
   return (
     <form onSubmit={handleSubmit} className={classes.form}>
@@ -83,6 +94,28 @@ export const PublisherForm = props => {
             variant="outlined"
             name="patroniteUrl"
             value={patroniteUrl}
+            fullWidth
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Patreon URL"
+            variant="outlined"
+            name="patreonUrl"
+            value={patreonUrl}
+            fullWidth
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="BuyCoffeeTo URL"
+            variant="outlined"
+            name="buyCoffeeToUrl"
+            value={buyCoffeeToUrl}
             fullWidth
             onChange={handleChange}
             onBlur={handleBlur}
